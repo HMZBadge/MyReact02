@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 
 import LifeCycleComponemt from './src/LifeCycleComponent';
 import EIComponent, {name, age, sum} from './src/EIComponent';
+import PropsTest from './src/PropsTest';
 
 import {
   Platform,
@@ -35,7 +36,9 @@ export default class App extends Component<{}> {
 
   render() {
     var view = this.state.remove ? null : <LifeCycleComponemt/>
-    var textStr = this.state.remove ? "让他复活" : "干掉他" 
+    var textStr = this.state.remove ? "让他复活" : "干掉他"; 
+
+    var param = {name:'小绿', age:29, sex: '女'};
     return (
       
       <View style={styles.container}>
@@ -65,6 +68,8 @@ export default class App extends Component<{}> {
                 result: res,
             })
         }} >a+b= {this.state.result}</Text>
+
+        <PropsTest {...param} />
       </View>
     );
   }
